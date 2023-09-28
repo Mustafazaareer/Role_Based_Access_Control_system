@@ -19,7 +19,6 @@ const dataSource = new DataSource({
   ],
   migrations: ['./**/migration/*.ts'],
   synchronize: true,
-  logging: false
 });
 
 dataSource.initialize().then(() => {

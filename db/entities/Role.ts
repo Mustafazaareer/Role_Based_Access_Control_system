@@ -10,6 +10,7 @@ import {
   from "typeorm";
 
 import { Permission } from "./Permission.js";
+import { User } from "./User.js";
 
 @Entity('roles')
 export class Role extends BaseEntity {
@@ -23,6 +24,9 @@ export class Role extends BaseEntity {
   @JoinTable()
   permissions: Permission[];
   
+  @ManyToMany(() => User)
+  users: User[];
+
   @CreateDateColumn({
     type: 'timestamp',
     default: () => "CURRENT_TIMESTAMP(6)"

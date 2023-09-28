@@ -5,8 +5,8 @@ import { Profile } from "./Profile.js";
 
 @Entity('users')
 export class User extends BaseEntity {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
+  @PrimaryGeneratedColumn('increment')
+  id: number;
 
   @Column({ length: 255, nullable: false })
   userName: string;

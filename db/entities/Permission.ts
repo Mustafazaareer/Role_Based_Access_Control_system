@@ -1,4 +1,5 @@
-import { BaseEntity, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn,ManyToMany } from "typeorm";
+import { Role } from "./Role.js";
 
 @Entity('permissions')
 export class Permission extends BaseEntity {
@@ -7,6 +8,9 @@ export class Permission extends BaseEntity {
 
   @Column({ unique: true })
   name: string;
+
+  @ManyToMany(() => Role)
+  roles: Role[];
 
   @CreateDateColumn({
     type: 'timestamp',
